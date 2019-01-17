@@ -1,0 +1,54 @@
+section .nav-menu{
+    position: fixed;
+    left: 0;
+    top: 0; 
+
+    &__logo{
+        margin: 0;
+    }
+
+    &__box{
+
+    }
+
+    //box nested
+    &__list{
+        margin: 0;
+        padding-left: 4px;
+        &::before{
+            content: "";
+            display: block;
+            height: 80px;
+            border-left: 2px solid #000;
+        }
+    }
+    
+    
+    //list nested
+    
+
+    &__item{
+        list-style: none;
+        padding: 3px 0;
+
+        &--child{
+            padding: 10px 0 3px 0 ;
+
+            &::before{
+                content: "";
+                display: inline-block;
+                width: 10px;
+                border-bottom: 2px solid #000;
+            }
+        }
+    }
+
+}
+
+
+section#nav-login{
+    position: fixed;
+    right: 0;
+    top: 0; 
+
+}

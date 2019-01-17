@@ -7,6 +7,8 @@
   <meta name="theme-color" content="{{ settings.color_accent }}">
   <link rel="canonical" href="{{ canonical_url }}">
 
+  
+
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
   {%- endif -%}
@@ -58,13 +60,15 @@
 
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
-  <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {% section 'header' %}
 
   <main role="main" id="MainContent">
     {{ content_for_layout }}
+    {% section 'featured-collection' %}
   </main>
+
+
 
   {% section 'footer' %}
 

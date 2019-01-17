@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   max-width: $grid-max-width;
+
+  // to REMOVE
+  margin: 300px 0 0 300px;
 }
 
 .featured-collection-item {
@@ -17,3 +20,15 @@
 .featured-collection__title {
   flex-basis: 100%;
 }
+
+.grid{
+
+    &__item{
+
+      &--featured-collections{
+        width: 100px;
+        display: inline-block;
+      }
+    }
+}
+

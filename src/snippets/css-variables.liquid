@@ -8,14 +8,24 @@
   {{ font_body_bold | font_face }}
   {{ font_body_bold_italic | font_face }}
 
+  @font-face {
+  font-family: 'Chromatica';
+  src: url('../assets/Chromatica.woff2') format('woff2'),
+      url('../assets/Chromatica.woff') format('woff');
+  font-style: normal;
+}
+
+
   :root {
     --color-accent: {{ settings.color_accent }};
     --color-body-text: {{ settings.color_body_text }};
     --color-main-background: {{ settings.color_main_bg }};
     --color-border: {{ settings.color_body_text | color_lighten: 50 }};
 
-    --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
-    --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    {% comment %} --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }}; {% endcomment %}
+    --font-heading: 'Chromatica', sans-serif;
+    {% comment %} --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }}; {% endcomment %}
+    --font-body: 'Chromatica', sans-serif;
     --font-body-weight: {{ settings.font_body.weight }};
     --font-body-style: {{ settings.font_body.style }};
     --font-body-bold-weight: {{ font_body_bold.weight | default: 'bold' }};
