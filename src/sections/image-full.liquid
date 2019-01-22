@@ -1,0 +1,29 @@
+{%- comment -%}
+
+{%- endcomment -%}
+
+
+<section class="image-full-wrapper">
+
+    <img src="{{ section.settings.image | img_url:  'master' }}" />
+
+</section>
+
+{% schema %}
+  {
+    "name": "Image Full Screen",
+
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ],
+
+    "presets": [{
+      "name": "Image Full Screen",
+      "category": "Image"
+    }]
+  }
+{% endschema %}

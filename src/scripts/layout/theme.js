@@ -8,8 +8,13 @@ import 'lazysizes/plugins/respimg/ls.respimg';
 import '../../styles/theme.scss';
 import '../../styles/theme.scss.liquid';
 
+//js for sections
+import '../sections/header';
+
+
 import {focusHash, bindInPageLinks} from '@shopify/theme-a11y';
 import {cookiesEnabled} from '@shopify/theme-cart';
+
 
 // Common a11y fixes
 focusHash();

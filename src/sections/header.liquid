@@ -29,7 +29,7 @@
 
     {% comment %} nav logo / main nav {% endcomment %}
     <section class="nav-menu"> 
-      <h1 class="nav-menu__logo">
+      <h1 id="mainLogo" class="nav-menu__logo nav-menu__logo--animated">
         <a href="/" class="logo-image">
           {% if section.settings.logo != blank %}
             {% capture image_size %}{{ section.settings.logo_max_width }}x{% endcapture %}
@@ -43,14 +43,14 @@
       </h1>
 
 
-      <nav role="navigation" class="nav-menu__box">
+      <nav role="navigation" id="navBox" class="nav-menu__box nav-menu__box--closed">
         <ul class="nav-menu__list">
           {% for link in linklists[section.settings.menu].links %}
             {% if link.links != blank %}
-              <li class="nav-menu__item">
+              <li class="nav-menu__item hasChilds">
                 <a href="{{ link.url }}">
                   {{ link.title }}
-                  {% comment %} {% include 'icon-arrow-down' %} {% endcomment %}
+                  {% include 'icon-arrow-down' %}
                 </a>
                 <ul>
                   {% for childlink in link.links %}
