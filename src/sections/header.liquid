@@ -50,7 +50,7 @@
               <li class="nav-menu__item hasChilds">
                 <a href="{{ link.url }}">
                   {{ link.title }}
-                  {% include 'icon-arrow-down' %}
+                  {% comment %} {% include 'icon-arrow-down' %} {% endcomment %}
                 </a>
                 <ul>
                   {% for childlink in link.links %}

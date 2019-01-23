@@ -1,6 +1,6 @@
 @keyframes pulse {
     0% { transform: scale(1) };
-    50% { transform: scale(1.1) };
+    50% { transform: scale(1.05) };
     100% { transform: scale(1) };
   }
 
@@ -25,8 +25,9 @@
 //styles
 section .nav-menu{
     position: fixed;
+    z-index: 10;
     left: 20px;
-    top: 10px; 
+    top: 20px; 
 
     &__logo{
         margin: 0;
@@ -35,7 +36,7 @@ section .nav-menu{
         &--animated{
             animation: pulse;
             animation-iteration-count: infinite;
-            animation-duration: 1s;
+            animation-duration: 2s;
             animation-timing-function: ease-out;
         }
     }
@@ -98,8 +99,9 @@ section .nav-menu{
 //TO_DO BEM
 section#nav-login{
     position: fixed;
+    z-index: 10;
     right: 20px;
-    top: 0; 
+    top: 15px; 
 
     ul{
         
