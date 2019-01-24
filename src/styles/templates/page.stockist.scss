@@ -1,0 +1,26 @@
+.rte.stockist{
+    text-align: left;
+
+    tr td {
+        
+        ul{
+            margin: 0;
+            padding: 10px 0;
+
+            li{
+                list-style: none;
+                padding: 10px 0 ;
+            }
+        } 
+
+        strong{
+            font-weight: var(--font-body-weight);
+            &:before{
+                content: "";
+                display: inline-block;
+                width: 70%;
+                border-bottom: 1px solid #000;
+            }
+        }
+    }
+}

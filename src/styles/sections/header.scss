@@ -1,25 +1,56 @@
+@keyframes pulse {
+    0% { transform: scale(1) };
+    50% { transform: scale(1.05) };
+    100% { transform: scale(1) };
+  }
+
+
+
+//styles
 section .nav-menu{
     position: fixed;
-    left: 0;
-    top: 0; 
+    z-index: 10;
+    left: 20px;
+    top: 20px; 
 
     &__logo{
         margin: 0;
+        
+
+        &--animated{
+            animation: pulse;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+        }
     }
 
     &__box{
-
+        max-height: 0;
+        transition: max-height 0.3s ease-in;
+        overflow: hidden;
+        
+        &--opened{
+            // max-height: 230px;
+            transition: max-height 0.3s ease-out;
+        }
     }
 
     //box nested
     &__list{
+        display: block;
         margin: 0;
         padding-left: 4px;
+
         &::before{
             content: "";
             display: block;
             height: 80px;
-            border-left: 2px solid #000;
+            border-left: 1px solid #000;
+        }
+
+        ul{
+            padding: 0;
         }
     }
     
@@ -27,16 +58,20 @@ section .nav-menu{
     //list nested
     &__item{
         list-style: none;
-        padding: 3px 0;
+        
+        a { 
+            display: inline-block;
+            padding: 5px 0;
+            @include leftHoverUnderscore;
+        }
+        
+        &--child a{
 
-        &--child{
-            padding: 10px 0 3px 0 ;
+            padding: 5px 0 5px 11px;
 
+            @include leftHoverUnderscore;
             &::before{
-                content: "";
-                display: inline-block;
                 width: 10px;
-                border-bottom: 2px solid #000;
             }
         }
     }
@@ -44,9 +79,27 @@ section .nav-menu{
 }
 
 
+
+//TO_DO BEM
 section#nav-login{
     position: fixed;
-    right: 0;
-    top: 0; 
+    z-index: 10;
+    right: 20px;
+    top: 15px; 
 
+    ul{
+        
+        li{
+            list-style: none;
+            display: inline-block;
+
+            a{
+                padding: 5px 10px;
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
 }

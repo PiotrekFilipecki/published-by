@@ -41,6 +41,7 @@ const keyboardKeys = {
  * @param {string} container - selector for the section container DOM element
  */
 
+
 register('product', {
   onLoad() {
     this.$container = $(this.container);
