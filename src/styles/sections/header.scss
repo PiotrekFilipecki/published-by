@@ -5,22 +5,6 @@
   }
 
 
-//mixins
-@mixin leftHoverUnderscore {
-    &::before{
-        content: "";
-        display: inline-block;
-        width: 0;
-        border-bottom: 1px solid #000;
-        transition: width 0.3s;
-        margin-right: -4px;
-    }
-
-    &:hover::before{
-        width: 100px;
-    }
-}
-
 
 //styles
 section .nav-menu{

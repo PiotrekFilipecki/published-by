@@ -1,0 +1,35 @@
+
+
+.template-register{
+
+    @include page-center-h1;
+
+    &__inner{
+
+        
+        form{
+            display: flex;
+            flex-direction: column;
+    
+            input{
+                margin: 0 0 30px 0;
+                padding: 10px;
+                border: 1px solid ;
+            }
+        }
+
+        input.button{
+            background: none;
+            &:hover{
+                background: #000;
+                color: #fff
+            }
+        }
+
+        a{
+            @include leftHoverUnderscore();
+        }
+
+    }
+
+}

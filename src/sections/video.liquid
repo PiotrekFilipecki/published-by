@@ -5,7 +5,7 @@
 
 <section class="video">
 
-  <video  autoplay muted loop src="{{ section.settings.videoUrl }}" type="video/mp4" border="0">
+  <video  autoplay muted loop src="{{ section.settings.videoUrl }}" type="video/mp4" frameborder="0">
      Your browser does not support the video tag.
   </video>
 
@@ -42,4 +42,9 @@
     border: none;
     display: block;
   }
+
+  body{
+    overflow: hidden;
+  }
+
 {% endstylesheet %}

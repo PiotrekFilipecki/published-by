@@ -109,3 +109,44 @@
 }
 
 
+
+// h1 pege center styling mixin
+@mixin page-center-h1(){
+        &__main{
+          margin: 0 auto;
+          max-width: 500px;
+          position: relative;
+          height: 100vh;
+      }
+
+      //nested in main
+      &__inner{
+          position: absolute;
+          top: 25%;
+          // transform: translateY(-50%);
+          width: 100%;
+
+          h1{
+              text-align: left;
+              font-size: var(--font-body-size);
+              margin: 0 0 60px 0 ;
+              font-weight: var(--font-body-weight);
+          }
+      }
+}
+
+//left hover underscore
+@mixin leftHoverUnderscore {
+  &::before{
+      content: "";
+      display: inline-block;
+      width: 0;
+      border-bottom: 1px solid #000;
+      transition: width 0.3s;
+      margin-right: -4px;
+  }
+
+  &:hover::before{
+      width: 100px;
+  }
+}
