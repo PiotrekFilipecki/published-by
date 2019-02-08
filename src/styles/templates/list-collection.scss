@@ -48,9 +48,13 @@
         width: 100%;
         position: absolute;
         font-size: 0.8em;
-        bottom: 0;
+        bottom: 10px;
         display: none;
         justify-content: space-between;
+
+        a{
+            padding: 0 15px;
+        }
     }
 
 }
