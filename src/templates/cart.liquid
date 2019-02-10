@@ -1,4 +1,7 @@
 {% if cart.item_count > 0 %}
+
+  <div class="cart-wrapper">
+
   <h1>{{ 'cart.general.title' | t }}</h1>
 
   <form action="/cart" method="post" novalidate>
@@ -29,7 +32,7 @@
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
-                  {{ item | img_url: '240x240' | img_tag: item.title }}
+                  {{ item | img_url: '150x150' | img_tag: item.title }}
                 </a>
               {% endif %}
 
@@ -41,7 +44,7 @@
                 <p>{{ item.variant.title }}</p>
               {% endunless %}
 
-              <p>{{ item.vendor }}</p>
+              {% comment %} <p>{{ item.vendor }}</p> {% endcomment %}
 
               {%- assign property_size = item.properties | size -%}
 
@@ -59,8 +62,8 @@
                   {% endunless %}
                 {% endfor %}
               {% endif %}
-
-              <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+              <br>
+              <a class="remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
                 <small>{{ 'cart.general.remove' | t }}</small>
               </a>
             </td>
@@ -90,39 +93,50 @@
         {% endfor %}
       </tbody>
     </table>
+    
+    <p class="subtotal">{{ 'cart.general.subtotal' | t }}: 
+      <strong>{{ cart.total_price | money }}
+      {% if cart.total_discounts > 0 %}
+        <small>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</small>
+      {% endif %}
+      </strong>
+    </p>
 
     {% if settings.cart_notes_enable %}
       <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
       <textarea name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
     {% endif %}
 
-    <p>{{ 'cart.general.subtotal' | t }}</p>
-    <p>{{ cart.total_price | money }}</p>
-    {% if cart.total_discounts > 0 %}
-      <p>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</p>
-    {% endif %}
-    <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
-    <input type="submit" name="update" value="{{ 'cart.general.update' | t }}">
-    <input type="submit" name="checkout" class="button" value="{{ 'cart.general.checkout' | t }}">
-  </form>
-{% else %}
-  <h1>{{ 'cart.general.title' | t }}</h1>
 
-  {% comment %}
-  Cart empty state
-  {% endcomment %}
-  <div class="supports-cookies">
-    <p>{{ 'cart.general.empty' | t }}</p>
-    <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+    <p>{{ 'cart.general.shipping_at_checkout' | t }}</p>
+    <button type="submit" name="update" >{{ 'cart.general.update' | t }}</button>
+    <button type="submit" name="checkout" >{{ 'cart.general.checkout' | t }}</button>
+  </form>
+
   </div>
 
-  {% comment %}
-  Cart no cookies state
-  ---------------------
-  Browser cookies are required to use the cart. If cookies aren't enabled in the
-  browser a message is displayed prompting the user to enable them.
-  {% endcomment %}
-  <div class="supports-no-cookies">
-    <p>{{ 'cart.general.cookies_required' | t }}</p>
+{% else %}
+
+  <div class="cart-wrapper">
+  <h1>{{ 'cart.general.title' | t }}</h1>
+
+    {% comment %}
+    Cart empty state
+    {% endcomment %}
+    <div class="supports-cookies">
+      <p>{{ 'cart.general.empty' | t }}</p>
+      <p>{{ 'cart.general.continue_browsing_html' | t }}</p>
+    </div>
+
+    {% comment %}
+    Cart no cookies state
+    ---------------------
+    Browser cookies are required to use the cart. If cookies aren't enabled in the
+    browser a message is displayed prompting the user to enable them.
+    {% endcomment %}
+    <div class="supports-no-cookies">
+      <p>{{ 'cart.general.cookies_required' | t }}</p>
+    </div>
+
   </div>
 {% endif %}
