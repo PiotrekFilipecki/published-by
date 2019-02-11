@@ -9,8 +9,11 @@
 .slider {
     position: relative;
 
-    .responsive-image__wrapper{
+    img{
         height: 100vh;
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 0;
     }
 
     .dots{
@@ -24,8 +27,8 @@
                 display: inline-block;
                 span{
                     display:block;
-                    width: 20px;
-                    height: 20px;
+                    width: 15px;
+                    height: 15px;
                     background: #000;
                     margin: 3px;
                     border-radius: 10px;
@@ -44,7 +47,13 @@
 
 .description{
     text-align: right;
-    padding-top: 10%;
+    padding-top: 5%;
+    padding-right: 10px;
+
+    p.desc{
+        padding-left:50%;
+        margin-bottom: 50px; 
+    }
 
     input{
         line-height: 45px;
@@ -54,8 +63,12 @@
         outline: 0;
     }
     
+    div{
+        margin: 10px 0;
+    }
+
     button{
-        margin: 50px 0;
+            margin: 10px 0;
             padding: 10px;
             border: 1px solid ;
             background: none;

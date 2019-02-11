@@ -221,3 +221,36 @@ register('product', {
     this.$container.off(this.namespace);
   },
 });
+
+
+// own slider 
+
+const imgsOfproduct = document.querySelectorAll('.slider img');
+const dotsOfImages = document.querySelectorAll('.dots ul li a');
+
+// console.log(imgsOfproduct[0]);
+// console.log(dotsOfImages);
+
+
+if (imgsOfproduct.length >= 1) {
+  
+  imgsOfproduct[0].classList.remove("hide");
+
+  dotsOfImages.forEach( (el) => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+  
+      const id = el.getAttribute('data-thumbnail-id');
+  
+      imgsOfproduct.forEach( (el) => {el.classList.add('hide')} );
+      imgsOfproduct.forEach( (el) => {
+        if (el.getAttribute('data-id') === id){
+          el.classList.remove('hide');
+        };
+      });
+  
+    }, true);
+  });
+}
+
+

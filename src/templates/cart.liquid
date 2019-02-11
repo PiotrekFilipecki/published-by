@@ -28,7 +28,7 @@
 
           <tr class="responsive-table-row">
 
-            <td data-label="{{ 'customer.order.product' | t }}">
+            <td data-label="{{ 'customer.order.product' | t }}" class="product-image">
 
               {% if item.image != blank %}
                 <a href="{{ item.url | within: collections.all }}">
@@ -37,7 +37,7 @@
               {% endif %}
 
             </td>
-            <td>
+            <td class="product-name">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
 
               {% unless item.product.has_only_default_variant %}
@@ -94,12 +94,12 @@
       </tbody>
     </table>
     
-    <p class="subtotal">{{ 'cart.general.subtotal' | t }}: 
-      <strong>{{ cart.total_price | money }}
+    {% comment %} <p class="subtotal">{{ 'cart.general.subtotal' | t }}:  {% endcomment %}
+    <p class="subtotal">Total: 
+      {{ cart.total_price | money }}
       {% if cart.total_discounts > 0 %}
         <small>{{ 'cart.general.savings' | t }} {{ cart.total_discounts | money }}</small>
       {% endif %}
-      </strong>
     </p>
 
     {% if settings.cart_notes_enable %}

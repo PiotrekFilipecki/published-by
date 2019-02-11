@@ -7,9 +7,16 @@
         border: 1px solid black;
         width: 60px;
         padding-left: 10px;
+        outline: 0;
     }
 
+    td.product-image{
+        width: 10%;
+    }
 
+    td.product-name{
+        width: 40%;
+    }
 
     table{
         border-collapse: collapse;
@@ -27,6 +34,7 @@
     .subtotal{
         text-align: right;
         margin-bottom: 50px; 
+
 
     }
 

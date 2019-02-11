@@ -10,9 +10,10 @@
       <h1>{{ product.title }}</h1>
       {% comment %} <p>{{ product.vendor }}</p> {% endcomment %}
 
-      <div class="rte">
-        {{ product.description }}
-      </div>
+      <p class="desc">{{ product.description }}</p>
+
+      {% comment %} <div class="rte">
+      </div> {% endcomment %}
 
       <form action="/cart/add" method="post" enctype="multipart/form-data">
         {% unless product.has_only_default_variant %}
@@ -49,9 +50,13 @@
           {% endfor %}
         </select>
         
-        <div data-price-wrapper>
+
+        <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+        <input type="number" id="Quantity" name="quantity" value="1" min="1" autocomplete="off">
+
+        <div class="price" data-price-wrapper>
           <span data-product-price>
-            Price: {{ current_variant.price | money }}
+            Price per one: {{ current_variant.price | money }}
           </span>
 
           {% if product.compare_at_price_max > product.price %}
@@ -63,9 +68,6 @@
             </s>
           {% endif %}
         </div>
-
-        <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
-        <input type="number" id="Quantity" name="quantity" value="1" min="1">
 
         <br>
 
@@ -108,14 +110,9 @@
           {%- endunless -%}
         {% endcapture %}
         
-         <img 
-          src="{{ image.src | img_url: 'master' }}" 
-          data-src="{{ image.src }}"
-          data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-          data-aspectratio="{{ 1 }}"
-          data-sizes="auto"
-          data-parent-fit="cover"          
-          /> 
+         <img src="{{ image.src | img_url: 'master' }}" class="hide"
+          data-id="{{ image.id }}"
+         /> 
 
         {% comment %} {% include 'responsive-image' with
           image: image,
