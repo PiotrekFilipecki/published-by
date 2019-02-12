@@ -1,0 +1,88 @@
+<section class="modal-section">
+
+    {% comment %} <h2>{{ section.settings.text }}</h2> {% endcomment %}
+
+    <div class="covers">
+        {% for block in section.blocks %}
+
+            <div class="covers__item" data-id="{{ block.settings.imageCover.id }}"> 
+                <img class="" src="{{ block.settings.imageCover | img_url: '400x' }}" /> 
+                <small>{{block.settings.name}}</small>
+                {% comment %} {{ block.settings.link }}  {% endcomment %}
+            </div>
+
+        {% endfor %}
+    </div>
+
+    {% comment %} modalss {% endcomment %}
+    {% for block in section.blocks %}
+        <div class="modal__background hide" id="{{ block.settings.imageCover.id }}">
+            <div class="modal__content"> 
+                <div class="modal__text">
+                    <h3>{{block.settings.name}}</h3>
+                    <small>{{block.settings.destription}}</small>
+                    <br><br>
+                    <a href="{{ block.settings.link }}" > read more </a>
+                </div>
+
+                <a href="{{ block.settings.link }}" target="_blank"> 
+                    <img class="" src="{{ block.settings.imageCover | img_url: '500x' }}" /> 
+                </a>
+                <button class="close"> close X </button>
+            </div>
+        </div>
+    {% endfor %}
+
+</section>
+
+{% schema %}
+  {
+    "name": "Modal",
+    
+    "settings": [
+
+    ],
+
+    "blocks": [
+        {
+            "type": "select",
+            "name": "Add Cover",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name",
+                    "info": "Name should be unique"
+                },
+                {
+                    "type": "textarea",
+                    "id": "destription",
+                    "label": "Description"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "imageCover",
+                    "label": "Cover Image",
+                    "info": "Ratio 2:1"
+                },
+                {
+                    "type": "url",
+                    "id": "link",
+                    "label": "External link"
+                }
+            ]
+        }
+    ],
+
+    "presets": [{
+      "name": "Modal",
+      "category": "Modal"
+    }]
+  }
+{% endschema %}
+
+
+{% javascript %}
+
+
+{% endjavascript %}

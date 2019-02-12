@@ -46,3 +46,47 @@ logo.addEventListener('click', (e) => {
 
 //first check session
 firstCheckSession();
+
+
+
+
+
+
+
+//code for el modaloo
+
+const coverItems = document.querySelectorAll('.covers__item');
+const modalItems = document.querySelectorAll('.modal__background');
+
+console.log(coverItems);
+
+coverItems.forEach( (el) => {
+  el.addEventListener('click', () => {
+
+    const id = el.getAttribute('data-id');
+
+    modalItems.forEach( (el)=>{
+      if (id === el.getAttribute('id')){
+        el.classList.remove('hide');
+        setTimeout(()=>{
+          el.querySelector('.modal__text').classList.add('opened');
+        }, 1);
+      }
+    });
+
+  }, true);
+});
+
+modalItems.forEach( (el)=>{
+  el.addEventListener('click', (e)=>{
+    if (e.target.classList.contains('modal__background') || e.target.classList.contains('close')){
+      el.classList.add('hide');
+      el.querySelector('.modal__text').classList.remove('opened');
+    }
+  }, true);
+});
+
+// function close(el){
+//   el.classList.add('hide');
+//   console.log(el);
+// };
