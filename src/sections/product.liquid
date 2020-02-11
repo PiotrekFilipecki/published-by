@@ -109,10 +109,11 @@
             hide
           {%- endunless -%}
         {% endcapture %}
-        
+         <a href="{{ image.src | img_url: 'master', scale: 3 }}">
          <img src="{{ image.src | img_url: 'master' }}" class="hide"
-          data-id="{{ image.id }}"
-         /> 
+          data-id="{{ image.id }}" 
+         /></a>
+         {% comment %} <img class=”image-zoom” src=”{{ featured_image | img_url: '480x480' }}” alt="{{ image.alt | escape }} data-zoom="{{ featured_image | img_url: '1024x1024', scale: 2 }}> {% endcomment %}
 
         {% comment %} {% include 'responsive-image' with
           image: image,
@@ -127,10 +128,10 @@
 
     <div class="dots">
       {% if product.images.size > 1 %}
-        <ul>
+        <ul class="thumbnails">
           {% for image in product.images %}
             <li>
-              <a href="{{ image.src | img_url: '480x480' }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail>
+              <a href="{{ image.src | img_url: '480x480' }}" data-standard="{{ image.src }}" data-thumbnail-id="{{ image.id }}" data-product-single-thumbnail>
                 <span></span>
                 {% comment %} <img class="product-single__thumbnail-image" src="{{ image.src | img_url: '160x160' }}" alt="{{ image.alt | escape }}"> {% endcomment %}
               </a>
@@ -144,6 +145,7 @@
   {% comment %} end slider {% endcomment %}
 
 </div>
+
 
 {% schema %}
   {

@@ -1,6 +1,13 @@
 .cart-wrapper{
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     margin: 0 auto;
+
+    @media only screen and (max-width:800px) {
+        width: 80%;
+        margin: 4em auto 2em;
+        height: 90vh;
+    }
 
     td input{
         line-height: 45px;

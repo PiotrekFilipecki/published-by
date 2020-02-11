@@ -1,0 +1,70 @@
+{%- comment -%}
+
+{%- endcomment -%}
+
+
+<section class="soon">
+    <div class="soon-inner">
+      <h1 id="mainLogo" class="nav-menu__logo nav-menu__logo--animated">
+        <img src="https://cdn.shopify.com/s/files/1/0049/4190/6023/files/logo.png?11" />
+      </h1>
+      <p>coming soon</p>
+      <div class="contact-wrapper">
+            <a style="color:#000;" href="mailto:office@publishedby.com"><i class="fas fa-envelope"></i></a>
+            <a style="color:#000;" target="_blank" href="https://www.instagram.com/publishedby/"><i class="fab fa-instagram"></i></a>
+      <div>
+    </div>
+
+</section>
+
+<script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+
+{% schema %}
+  {
+    "name": "Soon",
+    
+    "presets": [{
+      "name": "Soon",
+      "category": "Home Soon"
+    }]
+  }
+{% endschema %}
+
+
+{% comment %} TO_DO move to sass {% endcomment %}
+{% stylesheet %}
+
+
+  body{
+    overflow: hidden;
+  }
+
+  .soon {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .soon p {
+      text-align:center;
+  }
+  .contact-wrapper {
+      text-align: center;
+  }
+  .contact-wrapper a {
+      font-size:30px;
+      padding: 1vw;
+  }
+
+  .soon-inner h1 img {
+      max-width:300px;
+  }
+
+{% endstylesheet %}

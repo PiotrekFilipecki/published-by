@@ -1,0 +1,44 @@
+
+
+// #about{
+//     @media only screen and (max-width:992px) {
+//         .page-section__inner {
+//             h1 {
+//                 padding-left: 10vw;
+//                 font-size: 3rem;
+//                 margin-top: 2em;
+//             }
+//         }
+//         .rte {
+//             p {
+//                 padding-left: 10vw;
+//                 padding-right: 10vw;
+//             }
+//         }
+//     }
+// }
+
+
+    .page-section__inner {
+        h1 {
+            font-size: 4rem;
+
+            @media only screen and (max-width:768px) {
+                padding-left: 10vw;;
+            }
+
+            @media only screen and (max-width:992px) {
+                font-size: 3rem;
+                margin-top: 3em;
+                padding-left: 10%;
+            }
+        }
+    }
+    .rte {
+        p {
+            @media only screen and (max-width:992px) {
+                padding-left: 10vw;
+                padding-right: 10vw;
+            }
+        }
+    }

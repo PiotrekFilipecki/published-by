@@ -251,7 +251,7 @@
   },
   "layout": {
     "cart": {
-      "title": "Cart",
+      "title": "",
       "items_count": {
         "one": "item",
         "other": "items"
@@ -279,7 +279,7 @@
       "on_sale_from_html": "On Sale from {{ price }}",
       "from_text_html": "From {{ price }}",
       "quantity": "Quantity",
-      "add_to_cart": "Add to Cart"
+      "add_to_cart": "Preorder"
     }
   },
   "gift_cards": {

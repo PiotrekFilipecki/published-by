@@ -5,3 +5,24 @@
     border-color: $color-border;
   }
 }
+
+
+.template-product{
+  .flex-wrapper{
+      display: flex;
+      flex-direction: row;
+      @media only screen and (max-width:800px) {
+          flex-direction: column;
+          margin-bottom: 3em;
+      }
+      & > *{
+          flex: 1 1 auto;
+          max-width: 50%;
+  
+          @media only screen and (max-width:800px) {
+              max-width: 90%;
+              margin: 0 auto;
+          }
+      }
+  }
+  }
